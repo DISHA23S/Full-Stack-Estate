@@ -16,7 +16,10 @@
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.18.3",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.13",
+    "sweetalert2": "^11.11.0",
+    "vite-plugin-rewrite-all": "^1.0.2"
   },
   "devDependencies": {
     "prisma": "^5.14.0"

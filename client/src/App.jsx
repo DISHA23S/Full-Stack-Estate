@@ -11,6 +11,8 @@ import NewPostPage from "./routes/newPostPage/newPostPage";
 import ContactPage from "./routes/contactPage/contactPage";
 import { listPageLoader, profilePageLoader, singlePageLoader } from "./lib/loaders";
 import AboutSection from "./routes/aboutsection/AboutSection";
+import ForgotPassword from "./routes/forgotPassword/ForgotPassword"; // Import the ForgotPassword component
+import ResetPassword from './routes/resetPassword/ResetPassword'; 
 
 function App() {
   const router = createBrowserRouter([
@@ -50,6 +52,14 @@ function App() {
         {
           path: "/register",
           element: <Register />,
+        },
+        {
+          path: "/forgot-password",
+          element: <ForgotPassword />,
+        },
+        {
+          path: "/reset-password/:userId/:token", 
+          element: <ResetPassword />,
         },
       ],
     },

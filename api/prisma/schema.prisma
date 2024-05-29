@@ -81,6 +81,8 @@ model User {
   savedPosts SavedPost[]
   chats      Chat[]      @relation(fields: [chatIDs], references: [id])
   chatIDs    String[]    @db.ObjectId
+  resetPasswordToken String?
+  resetPasswordExpires DateTime?
 }
 
 model Chat {

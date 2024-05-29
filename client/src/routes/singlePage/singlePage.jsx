@@ -45,6 +45,7 @@ function SinglePage() {
               <div className="user">
                 <img src={post.user.avatar || "noavatar.jpg"} alt="" />
                 <span>{post.user.username}</span>
+                {/* <span>{post.user.email}</span> */}
               </div>
             </div>
             <div
