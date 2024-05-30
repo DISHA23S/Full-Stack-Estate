@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './ForgotPassword.scss';
 
 function ForgotPassword() {
   const [email, setEmail] = useState('');
@@ -8,13 +9,13 @@ function ForgotPassword() {
   const [newPassword, setNewPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSendOTP = async (e) => {
     e.preventDefault();
     try {
-      // Send email to backend to generate and send OTP
       const response = await axios.post('http://localhost:8800/forgot-password', { email });
       if (response.data.Status === 'Success') {
         alert('OTP has been sent to your email!');
+        setOtp(response.data.Otp);
       } else {
         alert('Error sending OTP.');
       }
@@ -24,28 +25,27 @@ function ForgotPassword() {
     }
   };
 
-  // const handleResetPassword = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     // Send OTP and new password to backend to reset password
-  //     const response = await axios.post('http://localhost:8800/reset-password', { email, otp, newPassword });
-  //     if (response.data.Status === 'Success') {
-  //       alert('Password reset successful!');
-  //       navigate('/login'); // Redirect to login page upon successful password reset
-  //     } else {
-  //       alert('Error resetting password.');
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     alert('Error resetting password.');
-  //   }
-  // };
+  const handleResetPassword = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post('http://localhost:8800/reset-password', { email, otp, newPassword });
+    if (response.data.Status === 'Success') {
+      alert('Password has been reset successfully!');
+      navigate('/login');
+    } else {
+      alert('Error resetting password.');
+    }
+  } catch (error) {
+    console.log(error);
+    alert('Error resetting password.');
+  }
+};
 
   return (
-    <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
-      <div className="bg-white p-3 rounded w-25">
+    <div className="forgot-password-container">
+      <div className="forgot-password-form">
         <h4>Forgot Password</h4>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSendOTP}>
           <div className="mb-3">
             <label htmlFor="email">
               <strong>Email</strong>
@@ -61,45 +61,47 @@ function ForgotPassword() {
               required
             />
           </div>
-          <button type="submit" className="btn btn-success w-100 rounded-0">
-            Send
+          <button type="submit" className="btn btn-success rounded-0">
+            Send OTP
           </button>
         </form>
-        {/* <form onSubmit={handleResetPassword}>
-          <div className="mb-3">
-            <label htmlFor="otp">
-              <strong>OTP</strong>
-            </label>
-            <input
-              type="text"
-              placeholder="Enter OTP"
-              autoComplete="off"
-              name="otp"
-              className="form-control rounded-0"
-              value={otp}
-              onChange={(e) => setOtp(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="newPassword">
-              <strong>New Password</strong>
-            </label>
-            <input
-              type="password"
-              placeholder="Enter New Password"
-              autoComplete="off"
-              name="newPassword"
-              className="form-control rounded-0"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-              required
-            />
-          </div>
-          <button type="submit" className="btn btn-success w-100 rounded-0">
-            Reset Password
-          </button>
-        </form> */}
+        {otp !== '' && (
+          <form onSubmit={handleResetPassword}>
+            <div className="mb-3">
+              <label htmlFor="otp">
+                <strong>OTP</strong>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter OTP"
+                autoComplete="off"
+                name="otp"
+                className="form-control rounded-0"
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="newPassword">
+                <strong>New Password</strong>
+              </label>
+              <input
+                type="password"
+                placeholder="Enter New Password"
+                autoComplete="off"
+                name="newPassword"
+                className="form-control rounded-0"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                required
+              />
+            </div>
+            <button type="submit" className="btn btn-success rounded-0">
+              Reset Password
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );
