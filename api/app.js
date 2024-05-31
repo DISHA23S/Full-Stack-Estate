@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser";
 import nodemailer from "nodemailer";
 import jwt from "jsonwebtoken";
 import prisma from "./lib/prisma.js"; 
-
+import bcrypt from "bcrypt";
 import authRoute from "./routes/auth.route.js";
 import postRoute from "./routes/post.route.js";
 import testRoute from "./routes/test.route.js";
@@ -87,7 +87,7 @@ app.post("/forgot-password", async (req, res) => {
       from: "vishrutiparekh2005@gmail.com",
       to: email,
       subject: "Reset Password OTP",
-      html: `<p>Your OTP for resetting password is: <strong>${otp}</strong></p>`,
+      html:` <p>Your OTP for resetting password is: <strong>${otp}</strong></p>`,
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
@@ -103,7 +103,9 @@ app.post("/forgot-password", async (req, res) => {
     res.status(500).send({ Status: "Error", Message: "Server error" });
   }
 });
-
+//const bcrypt = require('bcrypt');
+//const prisma = require('@prisma/client').PrismaClient;
+//const app = require('express')();
 
 app.post("/reset-password", async (req, res) => {
   const { email, otp, newPassword } = req.body;
@@ -131,9 +133,12 @@ app.post("/reset-password", async (req, res) => {
     console.log("Password reset successful");
 
     // Clear the OTP from the database
-    await prisma.OTP.deleteMany({
-      where: { userId: (await prisma.user.findUnique({ where: { email: email } })).id },
-    });
+    const user = await prisma.user.findUnique({ where: { email: email } });
+    if (user) {
+      await prisma.OTP.deleteMany({
+        where: { userId: user.id },
+      });
+    }
 
     return res.send({ Status: "Success", Message: "Password reset successful" });
   } catch (error) {
@@ -173,8 +178,6 @@ async function verifyOtp(email, otp) {
     return false; // Error occurred, OTP is invalid
   }
 }
-
-
 
 
 app.listen(8800, () => {

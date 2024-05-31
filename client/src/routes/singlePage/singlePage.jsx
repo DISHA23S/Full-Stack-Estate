@@ -59,22 +59,22 @@ const handledone = async () => {
   // window.location.href = '/payment';
 
 };
-const handlepay = async () => {
-  const propertyType = post.type.toLowerCase(); // Convert to lowercase to ensure case-insensitivity
-  let htmlContent;
+// const handlepay = async () => {
+//   const propertyType = post.type.toLowerCase(); // Convert to lowercase to ensure case-insensitivity
+//   let htmlContent;
 
-  if (propertyType === "buy") {
-    htmlContent = '<p>Your total is:- $' + post.price + '</p>';
-  } else {
-    htmlContent = '<p>Your total per month is:- $' + post.price + '</p>';
-  }
+//   if (propertyType === "buy") {
+//     htmlContent = '<p>Your total is:- $' + post.price + '</p>';
+//   } else {
+//     htmlContent = '<p>Your total per month is:- $' + post.price + '</p>';
+//   }
 
-  MySwal.fire({
-    title: 'Payment Successful !!',
-    html: htmlContent,
-    icon: 'success',
-  });
-};
+//   MySwal.fire({
+//     title: 'Payment Successful !!',
+//     html: htmlContent,
+//     icon: 'success',
+//   });
+// };
 
 const handlemsg = async () => {
   MySwal.fire({
@@ -140,11 +140,11 @@ const handlemsg = async () => {
                 <div className="price">$ {post.price}</div>
                 <button onClick={handlegive} className="sell">Contact</button>
                 <button onClick={handledone} className="done">{post.type}</button>
-                <button onClick={handlepay} className="done">Payment</button>
+                {/* <button onClick={handlepay} className="done">Payment</button> */}
 
               </div>
               <div className="user">
-                <img src={post.user.avatar || "noavatar.png"} alt="" />
+                <img src={post.user.avatar || "noavatar.jpg"} alt="" />
                 <span>{post.user.username}</span>
               
               </div>

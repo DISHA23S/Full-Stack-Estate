@@ -44,7 +44,7 @@ function ForgotPassword() {
   return (
     <div className="forgot-password-container">
       <div className="forgot-password-form">
-        <h4>Forgot Password</h4>
+        <h1>Forgot Password</h1>
         <form onSubmit={handleSendOTP}>
           <div className="mb-3">
             <label htmlFor="email">
@@ -102,6 +102,9 @@ function ForgotPassword() {
             </button>
           </form>
         )}
+      </div>
+      <div className="imgContainer">
+        <img src="/bg.png" alt="" />
       </div>
     </div>
   );
