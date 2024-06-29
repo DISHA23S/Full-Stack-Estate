@@ -179,6 +179,58 @@ async function verifyOtp(email, otp) {
   }
 }
 
+app.post('/send-invite', async (req, res) => {
+  const { email, postId } = req.body;
+  try {
+    const post = await prisma.post.findUnique({
+      where: { id: postId },
+      include: { user: true },
+    });
+
+    if (!post || !post.user) {
+      console.error(`Post or user not found for postId: ${postId}`);
+      return res.status(404).send({ Status: 'Error', Message: 'Post or User not found' });
+    }
+
+    const userEmail = post.user.email;
+    const emailTitle = `Request to ${post.type} your ${post.property}`;
+
+    sendEmail(userEmail, emailTitle, 'Please review the request and provide your response at your earliest convenience.');
+
+    console.log(`Invite sent to: ${userEmail}`);
+
+    res.send({ Status: 'Success', Message: 'Invite sent to post owner' });
+  } catch (error) {
+    console.error('Error sending invite:', error.message);
+    res.status(500).send({ Status: 'Error', Message: 'Server error' });
+  }
+});
+
+function sendEmail(to, subject, text) {
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "vishrutiparekh2005@gmail.com",
+      pass: "pmyb umvu gahq hdnk",
+    },
+  });
+
+  const mailOptions = {
+    from: "vishrutiparekh2005@gmail.com",
+    to: to,
+    subject: subject,
+    html: `<p>${text}</p>`,
+  };
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.error('Error sending email:', error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+}
+
 
 app.listen(8800, () => {
   console.log("Server is running!");
