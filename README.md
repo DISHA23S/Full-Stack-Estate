@@ -128,11 +128,12 @@ This Real Estate Website project is a comprehensive platform designed to facilit
 1. Backend Development of Chat and Messages
 2. Started frontend development.
 3. Integrated messages section into the profile page.
-4. Post Page Improvements
+4. Post Page Improvements.
 5. Implemented Rent or Buy button in the post.
 6. Backend Development of Admin Panel.
-7. Frontend Development of Admin Panel:
+7. Frontend Development of Admin Panel.
 
+## 📝 Day-by-Day Progress
 **Day 1: Backend of Chat and Messages**
 - Completed backend development for chat and messaging features.
 - Integrated necessary API endpoints and data models.
