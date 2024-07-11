@@ -50,3 +50,119 @@ This Real Estate Website project is a comprehensive platform designed to facilit
   - Explored concepts and best practices for uploading images, laying the groundwork for future feature development related to property listings and user-generated content.
 ## 🌟 Week 2
 ### Here Outline of week 2
+1. Creating Logout Functionality
+2. Testing Logout Functionality in Postman
+3. Researching Features for Frontend Logout Button
+4. Creating Profile Page
+5. Creating AuthContext File for User Information
+6. Researching APIs for Updating Profile Page
+7. Developing Update Profile Page Functionality
+8. Implementing Image Upload Feature
+9. Testing Image Upload Functionality
+
+## 📝 Day-by-Day Progress
+**Day 1:Creating Logout Functionality in Backend**
+- Developed the backend logic to handle user logout.
+- Implemented an endpoint that invalidates the user's session or token.
+  
+#### **Day 2:Start Creating Profile Page**
+- Began the development of the profile page using React.
+- Designed the initial layout and structure, focusing on user information display and edit options.
+- Connected the button to the logout functionality in the backend.
+- Created an AuthContext file in React to manage and access user information throughout the application
+
+#### **Day 3:Reviewing APIs for Updating Profile Page**
+
+- Researched and reviewed the necessary APIs for updating the profile page.
+- Ensured that the API endpoints are correctly defined and documented for seamless integration.
+- Created forms and connected them to the backend to update user information.
+
+#### **Day 4:Setting Feature for Uploading Image**
+- Added the feature for uploading profile images.
+- Integrated this functionality with the backend to store and retrieve images securely.
+- Focused on ensuring a consistent design and responsive layout.
+
+#### **Day 5:Testing Image Uploading**
+- Ensured all elements are styled correctly and the page is visually appealing.
+- Tested the image uploading functionality to ensure it works as expected.
+- Verified that images are correctly stored and retrieved from the backend.
+## 🌟 Week 3
+### Here Outline of week 3
+1. Backend development of house post creation.
+2. Testing post creation functionality using Postman.
+3. Frontend development of post page and implementation of SCSS styling.
+4. Integration of list view functionality on the profile page and implementation of Saved functionality.
+5. Backend development of chat and messaging features.
+
+## 📝 Day-by-Day Progress
+ **Day 1: Start Backend of Creating Post of House**
+- Initiated backend development to handle creating posts for houses.
+- Defined database schemas and API endpoints for creating and retrieving posts.
+- Set up initial data structures and server-side logic.
+#### **Day 2:Exploring Post Functionality**
+- Explored additional functionalities related to house posts.
+- Investigated best practices and potential enhancements.
+
+#### **Day 3:Testing Post Creation in Postman**
+- Conducted thorough testing of the post creation functionality using Postman.
+- Ensured API endpoints perform as expected and handle various scenarios.
+
+#### **Day 4:Starting Frontend of Post Page**
+- Started frontend development for the page displaying house posts.
+- Designed initial layout and components for displaying and interacting with posts.
+- Implemented functionalities for viewing, interacting with, and managing posts.
+
+#### **Day 5:Setting Saved Functionality on Profile Page**
+- Implemented saved functionality on the profile page.
+- Designed UI elements for managing and viewing saved posts or places.
+- Ensured seamless integration with existing profile features. 
+
+#### **Day 6: Start Backend of Chat and Messages Features**
+- Initiated backend development for chat and messaging features.
+- Defined data models and API endpoints for handling messages.
+- Laid out initial architecture and setup for real-time communication.
+- Integrated with existing user authentication and profile systems.
+
+## 🌟 Week 4
+### Here Outline of week 4
+1. Backend Development of Chat and Messages
+2. Started frontend development.
+3. Integrated messages section into the profile page.
+4. Post Page Improvements
+5. Implemented Rent or Buy button in the post.
+6. Backend Development of Admin Panel.
+7. Frontend Development of Admin Panel:
+
+**Day 1: Backend of Chat and Messages**
+- Completed backend development for chat and messaging features.
+- Integrated necessary API endpoints and data models.
+- Conducted comprehensive testing using Postman.
+#### **Day 2: Frontend of Chat and Messages**
+- Initiated frontend development for chat and messaging features.
+- Enhanced UI and implemented real-time messaging functionalities.
+- Applied SCSS styling for consistent design.
+#### **Day 3: Messages Section in Profile Page and Search Functionality**
+- Integrated messages section into the user profile.
+- Implemented search bar functionality on the homepage.
+- Refined UI and ensured functionality across different devices.
+#### **Day 4: Contact and Rent/Buy Buttons in Posts**
+- Added contact functionality to property listings.
+- Implemented rent or buy buttons for initiating requests.
+- Applied SCSS styles for visual consistency.
+#### **Day 5: Invite Page and Email Notifications**
+- Developed invite page for managing rent or buy requests.
+- Implemented email notifications for user interactions.
+- Prepared backend setup for admin panel functionalities.
+#### **Day 6: Admin Panel Backend and Frontend**
+- Finalized backend development for the admin panel.
+- Implemented CRUD operations and business logic.
+- Started frontend development and ensured integration with backend APIs.
+
+
+
+
+
+
+
+
+
